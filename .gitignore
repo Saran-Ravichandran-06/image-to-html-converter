@@ -1,0 +1,16 @@
+# Python
+*.pyc
+__pycache__/
+
+# Environment variables
+.env
+
+# Node / Frontend
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/

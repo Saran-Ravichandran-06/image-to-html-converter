@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image to HTML Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image → HTML/CSS Converter</h1>
+
+        <div class="results">
+            
+            <!-- Left side: Input, preview, button -->
+            <div class="left-panel">
+                <div class="upload-section">
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+
+                <div class="image-preview">
+                    <h2>Input Image</h2>
+                    <img id="previewImage" alt="Uploaded Image Preview">
+                </div>
+
+                <div class="button-section">
+                    <button id="convertBtn">Convert</button>
+                </div>
+            </div>
+
+            <!-- Right side: Generated HTML & CSS -->
+            <div class="code-results">
+                <div class="code-block">
+                    <h2>Generated HTML</h2>
+                    <textarea id="htmlOutput" readonly></textarea>
+                </div>
+                <div class="code-block">
+                    <h2>Generated CSS</h2>
+                    <textarea id="cssOutput" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Show preview when image selected
+        document.getElementById("imageInput").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("previewImage").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
